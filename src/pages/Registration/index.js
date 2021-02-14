@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Signup from '../../components/Signup';
 
 import './styles.scss';
 
-const Registration = () => {
-    return (
-        <div>
-            <h1>
-                Registration Page
-            </h1>
-        </div>
-    );
-};
+class Registration extends Component {
+
+    render() {
+        return <Signup /> 
+    }
+}
 
 export default Registration;
