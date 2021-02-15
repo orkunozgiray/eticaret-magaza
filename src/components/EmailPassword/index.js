@@ -35,7 +35,7 @@ const EmailPassword = props => {
     }
 
     const configAuthWrapper = {
-        headline: 'Email Password'
+        headline: 'Reset Your Password'
     };
 
     return (
@@ -65,7 +65,7 @@ const EmailPassword = props => {
                     />
 
                     <Button type="submit">
-                        Email Password
+                        Send a Reset Link
                     </Button>
 
                 </form>

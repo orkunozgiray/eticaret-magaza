@@ -70,7 +70,7 @@ const SignIn = props => {
 
                         <div className="links">
                             <Link to="/recovery">
-                                Reset Password
+                                Forgot Your Password?
                             </Link>
                         </div>
                         

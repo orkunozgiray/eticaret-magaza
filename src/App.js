@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { auth, handleUserProfile } from './firebase/utils';
 import { setCurrentUser } from './redux/User/user.actions';
 
 //hoc
 import WithAuth from './hoc/withAuth';
+import WithNauth from './hoc/withNauth';
 
 //layouts
 import MainLayout from './layouts/MainLayout';
@@ -51,17 +52,29 @@ const App = props => {
           </HomepageLayout>
           )} 
         />
-        <Route path="/registration" render={() => (
-          <MainLayout>
-            <Registration />
-          </MainLayout>
+        <Route path="/registration" render={() => currentUser ? 
+            (<WithNauth>
+              <MainLayout>
+                <Registration />
+              </MainLayout>
+            </WithNauth> 
+            ) : (
+              <MainLayout>
+                <Registration />
+              </MainLayout>
           )} 
         />
         <Route path="/login" 
-          render={() => (
-            <MainLayout>
-              <Login />
-            </MainLayout>
+          render={() => currentUser ? 
+            (<WithNauth>
+              <MainLayout>
+                <Login />
+              </MainLayout>
+            </WithNauth> 
+            ) : (
+              <MainLayout>
+                <Login />
+              </MainLayout>
           )} 
         />
         <Route path="/recovery" render={() => (
