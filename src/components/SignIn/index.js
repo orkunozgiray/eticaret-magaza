@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import './styles.scss';
 import { signInWithGoogle, auth } from './../../firebase/utils';
 
+import AuthWrapper from '../AuthWrapper';
 import FormInput from '../forms/FormInput';
 import Button from '../forms/Button';
 
@@ -47,21 +50,20 @@ class SignIn extends Component {
 
     const { email, password } = this.state;
 
-        return (
-            <div className="signin">
-                <div className="wrap">
-                    <h2>
-                        Login
-                    </h2>
+    const configAuthWrapper = {
+        headline: 'Login'
+    };
 
-                    <div className="formWrap">
+        return (
+            <AuthWrapper {...configAuthWrapper}>
+                <div className="formWrap">
                         <form onSubmit={this.handleSubmit}>
 
                             <FormInput 
                                 type="email"
                                 name="email"
                                 value={email}
-                                placeHolder="Email"
+                                placeholder="Email"
                                 handleChange={this.handleChange}
                             />
 
@@ -69,7 +71,7 @@ class SignIn extends Component {
                                 type="password"
                                 name="password"
                                 value={password}
-                                placeHolder="Password"
+                                placeholder="Password"
                                 handleChange={this.handleChange}
                             />
 
@@ -84,10 +86,16 @@ class SignIn extends Component {
                                     </Button>
                                 </div>
                             </div>
+
+                            <div className="links">
+                                <Link to="/recovery">
+                                    Reset Password
+                                </Link>
+                            </div>
+                            
                         </form>
                     </div>
-                </div>
-            </div>
+            </AuthWrapper>
         );
     }    
 };
