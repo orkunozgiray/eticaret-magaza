@@ -91,7 +91,7 @@ class Signup extends Component {
                                 type="text"
                                 name="displayName"
                                 value={displayName}
-                                placeHolder="Full name"
+                                placeholder="Full name"
                                 onChange={this.handleChange}
                             />
 
@@ -99,7 +99,7 @@ class Signup extends Component {
                                 type="email"
                                 name="email"
                                 value={email}
-                                placeHolder="Email"
+                                placeholder="Email"
                                 onChange={this.handleChange}
                             />
 
@@ -107,7 +107,7 @@ class Signup extends Component {
                                 type="password"
                                 name="password"
                                 value={password}
-                                placeHolder="Password"
+                                placeholder="Password"
                                 onChange={this.handleChange}
                             />
 
@@ -115,7 +115,7 @@ class Signup extends Component {
                                 type="password"
                                 name="confirmPassword"
                                 value={confirmPassword}
-                                placeHolder="ConfirmPassword"
+                                placeholder="ConfirmPassword"
                                 onChange={this.handleChange}
                             />
 
