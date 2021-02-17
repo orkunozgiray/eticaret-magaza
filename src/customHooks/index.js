@@ -1,7 +1,9 @@
 import useAuth from './useAuth';
-import useNauth from './useNauth';
+import useAdminAuth from './useAdminAuth';
+// import useNauth from './useNauth';
 
 export {
     useAuth,
-    useNauth
+    useAdminAuth
+    // useNauth
 };
