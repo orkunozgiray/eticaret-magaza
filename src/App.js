@@ -14,6 +14,9 @@ import WithAdminAuth from './hoc/withAdminAuth';
 //layouts
 import MainLayout from './layouts/MainLayout';
 import HomepageLayout from './layouts/HomepageLayout';
+import AdminLayout from './layouts/AdminLayout';
+import DashboardLayout from './layouts/DashboardLayout';
+
 //pages
 import HomePage from './pages/HomePage';
 import Registration from './pages/Registration';
@@ -80,17 +83,17 @@ const dispatch = useDispatch();
         />
         <Route path="/dashboard" render={() => (
           <WithAuth>
-            <MainLayout>
+            <DashboardLayout>
               <Dashboard />
-            </MainLayout>
+            </DashboardLayout>
           </WithAuth>
           )} 
         />
         <Route path="/admin" render={() => (
           <WithAdminAuth>
-            <MainLayout>
+            <AdminLayout>
               <Admin />
-            </MainLayout>
+            </AdminLayout>
           </WithAdminAuth>
           )} 
         />
