@@ -19,6 +19,7 @@ import DashboardLayout from './layouts/DashboardLayout';
 
 //pages
 import HomePage from './pages/HomePage';
+import Search from './pages/Search';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import Recovery from './pages/Recovery';
@@ -43,8 +44,12 @@ const dispatch = useDispatch();
           <HomepageLayout>
             <HomePage />
           </HomepageLayout>
-          )} 
-        />
+          )} />
+        <Route path="/search" render={() => (
+          <MainLayout>
+            <Search />
+          </MainLayout>
+          )} />
         <Route path="/registration" 
           render={() => 
             // currentUser ? 
@@ -58,8 +63,7 @@ const dispatch = useDispatch();
               <MainLayout>
                 <Registration />
               </MainLayout>
-          )} 
-        />
+          )} />
         <Route path="/login" 
           render={() => 
           // currentUser ? 
@@ -73,30 +77,26 @@ const dispatch = useDispatch();
               <MainLayout>
                 <Login />
               </MainLayout>
-          )} 
-        />
+          )} />
         <Route path="/recovery" render={() => (
           <MainLayout>
             <Recovery />
           </MainLayout>
-          )} 
-        />
+          )} />
         <Route path="/dashboard" render={() => (
           <WithAuth>
             <DashboardLayout>
               <Dashboard />
             </DashboardLayout>
           </WithAuth>
-          )} 
-        />
+          )} />
         <Route path="/admin" render={() => (
           <WithAdminAuth>
             <AdminLayout>
               <Admin />
             </AdminLayout>
           </WithAdminAuth>
-          )} 
-        />
+          )} />
       </Switch>
     </div>
   );

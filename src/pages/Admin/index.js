@@ -172,7 +172,7 @@ const Admin = props => {
                       } = product;
 
                       return (
-                        <tr>
+                        <tr key={index}> 
                           <td>
                             <img src={productThumbnail} />
                           </td>
