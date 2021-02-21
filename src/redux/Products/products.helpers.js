@@ -67,23 +67,23 @@ export const handleDeleteProduct = documentID => {
   });
 }
 
-// export const handleFetchProduct = (productID) => {
-//   return new Promise((resolve, reject) => {
-//     firestore
-//       .collection('products')
-//       .doc(productID)
-//       .get()
-//       .then(snapshot => {
+export const handleFetchProduct = (productID) => {
+  return new Promise((resolve, reject) => {
+    firestore
+      .collection('products')
+      .doc(productID)
+      .get()
+      .then(snapshot => {
 
-//         if (snapshot.exists) {
-//           resolve({
-//             ...snapshot.data(),
-//             documentID: productID
-//           });
-//         }
-//       })
-//       .catch(err => {
-//         reject(err);
-//       })
-//   })
-// }
+        if (snapshot.exists) {
+          resolve({
+            ...snapshot.data(),
+            documentID: productID
+          });
+        }
+      })
+      .catch(err => {
+        reject(err);
+      })
+  })
+}
