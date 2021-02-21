@@ -48,7 +48,7 @@ const Header = props => {
                     <ul>
 
                         <li>
-                            <Link>
+                            <Link to ="/cart">
                                 My Bag ({totatlNumCartItems})
                             </Link>
                         </li>

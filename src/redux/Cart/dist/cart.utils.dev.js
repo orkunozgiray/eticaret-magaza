@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.handleAddToCart = exports.existingCartItem = void 0;
+exports.handleReduceCartItem = exports.handleRemoveCartItem = exports.handleAddToCart = exports.existingCartItem = void 0;
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
@@ -49,30 +49,38 @@ var handleAddToCart = function handleAddToCart(_ref2) {
   return [].concat(_toConsumableArray(prevCartItems), [_objectSpread({}, nextCartItem, {
     quantity: quantityIncrement
   })]);
-}; // export const handleRemoveCartItem = ({
-//   prevCartItems,
-//   cartItemToRemove
-// }) => {
-//   return prevCartItems.filter(item => item.documentID !== cartItemToRemove.documentID);
-// }
-// export const handleReduceCartItem = ({
-//   prevCartItems,
-//   cartItemToReduce
-// }) => {
-//   const existingCartItem = prevCartItems.find(cartItem =>
-//     cartItem.documentID === cartItemToReduce.documentID);
-//   if (existingCartItem.quantity === 1) {
-//     return prevCartItems.filter(
-//       cartItem => cartItem.documentID !== existingCartItem.documentID
-//     );
-//   }
-//   return prevCartItems.map(cartItem =>
-//     cartItem.documentID === existingCartItem.documentID ?
-//     {
-//       ...cartItem,
-//       quantity: cartItem.quantity - 1
-//     } : cartItem)
-// };
-
+};
 
 exports.handleAddToCart = handleAddToCart;
+
+var handleRemoveCartItem = function handleRemoveCartItem(_ref3) {
+  var prevCartItems = _ref3.prevCartItems,
+      cartItemToRemove = _ref3.cartItemToRemove;
+  return prevCartItems.filter(function (item) {
+    return item.documentID !== cartItemToRemove.documentID;
+  });
+};
+
+exports.handleRemoveCartItem = handleRemoveCartItem;
+
+var handleReduceCartItem = function handleReduceCartItem(_ref4) {
+  var prevCartItems = _ref4.prevCartItems,
+      cartItemToReduce = _ref4.cartItemToReduce;
+  var existingCartItem = prevCartItems.find(function (cartItem) {
+    return cartItem.documentID === cartItemToReduce.documentID;
+  });
+
+  if (existingCartItem.quantity === 1) {
+    return prevCartItems.filter(function (cartItem) {
+      return cartItem.documentID !== existingCartItem.documentID;
+    });
+  }
+
+  return prevCartItems.map(function (cartItem) {
+    return cartItem.documentID === existingCartItem.documentID ? _objectSpread({}, cartItem, {
+      quantity: cartItem.quantity - 1
+    }) : cartItem;
+  });
+};
+
+exports.handleReduceCartItem = handleReduceCartItem;

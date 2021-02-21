@@ -33,27 +33,25 @@ var cartReducer = function cartReducer() {
           nextCartItem: action.payload
         })
       });
-    //     case cartTypes.REDUCE_CART_ITEM:
-    //       return {
-    //         ...state,
-    //         cartItems: handleReduceCartItem({
-    //           prevCartItems: state.cartItems,
-    //           cartItemToReduce: action.payload
-    //         })
-    //       };
-    //     case cartTypes.REMOVE_CART_ITEM:
-    //       return {
-    //         ...state,
-    //         cartItems: handleRemoveCartItem({
-    //           prevCartItems: state.cartItems,
-    //           cartItemToRemove: action.payload
-    //         })
-    //       };
-    //     case cartTypes.CLEAR_CART:
-    //       return {
-    //         ...state,
-    //         ...INITIAL_STATE
-    //       }
+
+    case _cart["default"].REDUCE_CART_ITEM:
+      return _objectSpread({}, state, {
+        cartItems: (0, _cart2.handleReduceCartItem)({
+          prevCartItems: state.cartItems,
+          cartItemToReduce: action.payload
+        })
+      });
+
+    case _cart["default"].REMOVE_CART_ITEM:
+      return _objectSpread({}, state, {
+        cartItems: (0, _cart2.handleRemoveCartItem)({
+          prevCartItems: state.cartItems,
+          cartItemToRemove: action.payload
+        })
+      });
+
+    case _cart["default"].CLEAR_CART:
+      return _objectSpread({}, state, {}, INITIAL_STATE);
 
     default:
       return state;
