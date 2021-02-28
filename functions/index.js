@@ -6,7 +6,7 @@ const stripe = require('stripe')('sk_test_51FxNB4EVqFiUSN9e7ofxFgpHQrVpFMz1nbwb9
 const app = express();
 
 app.use(cors({
-  origin: true,
+  origin: true
 }));
 app.use(express.json());
 
@@ -33,10 +33,10 @@ app.post('/payments/create', async (req, res) => {
   }
 })
 
-app.get("*", (req, res) => {
+app.get('*', (req, res) => {
   res
-      .status(404)
-      .send("404, Not Found.");
+    .status(404)
+    .send('404, Not Found.');
 });
 
 exports.api = functions.https.onRequest(app);
