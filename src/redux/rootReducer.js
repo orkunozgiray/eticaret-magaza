@@ -11,7 +11,7 @@ export const rootReducer = combineReducers({
   user: userReducer,
   productsData: productsReducer,
   cartData: cartReducer,
-//   ordersData: ordersReducer,
+  ordersData: ordersReducer,
 });
 
 const configStorage = {
