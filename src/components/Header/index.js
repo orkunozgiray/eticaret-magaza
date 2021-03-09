@@ -5,6 +5,7 @@ import { signOutUserStart } from '../../redux/User/user.actions';
 import { selectCartItemsCount } from '../../redux/Cart/cart.selectors';
 import './styles.scss';
 import Logo from '../../assets/logo.png';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const mapState = (state) => ({
     currentUser: state.user.currentUser,
@@ -49,7 +50,7 @@ const Header = props => {
 
                         <li>
                             <Link to ="/cart">
-                                My Bag ({totatlNumCartItems})
+                                <FaShoppingCart /> ({totatlNumCartItems})
                             </Link>
                         </li>
 
